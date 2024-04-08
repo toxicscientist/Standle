@@ -315,7 +315,7 @@ function check(input) {
             <tr><th>${input}</th><td>${reconvert(stands[input].power)}</td><td>${reconvert(stands[input].speed)}</td><td>${reconvert(stands[input].range)}</td><td>${reconvert(stands[input].stamina)}</td><td>${reconvert(stands[input].precision)}</td><td>${reconvert(stands[input].development)}</td><td>${stands[input].part > 9 ? "Beyond Mainline" : stands[input].part}</td></tr>
         </table >
         <p /><div id="savedCopy">${savedCopy}</div>
-        <p /><button onclick="!endless ? copy(savedCopy) : window.location.reload()" id="copy">${endless ? "🔄" : "🔗"}</button>
+        <p /><button onclick="!endless ? copy(savedCopy) : window.location.reload()" id="copy">${endless ? "🔄Refresh" : "🔗Copy"}</button>
         `
         document.getElementById('result').style.border = "1px solid"
         document.getElementById('input').innerHTML = ""
@@ -343,7 +343,7 @@ function check(input) {
                     <tr><th>${standname}</th><td>${reconvert(stands[standname].power)}</td><td>${reconvert(stands[standname].speed)}</td><td>${reconvert(stands[standname].range)}</td><td>${reconvert(stands[standname].stamina)}</td><td>${reconvert(stands[standname].precision)}</td><td>${reconvert(stands[standname].development)}</td><td>${stands[standname].part > 9 ? "Beyond Mainline" : stands[standname].part}</td></tr>
             </table>
             <p /><div id="savedCopy">${savedCopy}</div>
-            <p /><button onclick="!endless ? copy(savedCopy) : window.location.reload()" id="copy">${endless ? "🔄" : "🔗"}</button>
+            <p /><button onclick="!endless ? copy(savedCopy) : window.location.reload()" id="copy">${endless ? "🔄Refresh" : "🔗Copy"}</button>
             `
             document.getElementById('result').style.border = "1px solid"
             document.getElementById('input').innerHTML = ""

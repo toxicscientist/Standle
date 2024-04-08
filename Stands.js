@@ -319,7 +319,7 @@ function check(input) {
         `
         document.getElementById('result').style.border = "1px solid"
         document.getElementById('input').innerHTML = ""
-        resCookieHandler(standle, lives)
+        if(!endless)resCookieHandler(standle, lives)
     } else {
         var correction = {};
         correction.power = compare(input, "power")
@@ -347,7 +347,7 @@ function check(input) {
             `
             document.getElementById('result').style.border = "1px solid"
             document.getElementById('input').innerHTML = ""
-            resCookieHandler(standle, 0)
+            if(!endless)resCookieHandler(standle, 0)
         }
     }
 }

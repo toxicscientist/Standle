@@ -42,6 +42,7 @@ var stands = {
     "Cinderella": { power: 2, speed: 3, range: 3, stamina: 3, precision: 5, development: 3, part: 4 },
     "Crazy Diamond": { power: 5, speed: 5, range: 2, stamina: 4, precision: 4, development: 3, part: 4 },
     "Enigma": { power: 1, speed: 1, range: 3, stamina: 5, precision: 3, development: 3, part: 4 },
+    "Earth Wind and Fire": { power: 3, speed: 3, range: 0, stamina: 5, precision: 3, development: 3, part: 4 },
     "Harvest": { power: 1, speed: 4, range: 5, stamina: 5, precision: 1, development: 3, part: 4 },
     "Heaven's Door": { power: 2, speed: 4, range: 4, stamina: 4, precision: 3, development: 5, part: 4 },
     "Highway Star": { power: 3, speed: 4, range: 5, stamina: 5, precision: 1, development: 3, part: 4 },

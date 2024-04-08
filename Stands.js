@@ -240,6 +240,7 @@ function resCookieHandler(day, lives){
 
 var standle = Math.ceil(new Date().getTime() / (1000 * 60 * 60 * 24)) - 19810
 var epochstand = Object.keys(stands)[Math.round(((+((((Math.cos(standle))*100).toString()).slice(5,8)))/1000)*Object.keys(stands).length)]
+var standname = epochstand
 console.log("epoch", epochstand, stands[epochstand])
 var stand = epochstand
 var settingsOpen = false

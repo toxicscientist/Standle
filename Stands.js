@@ -309,7 +309,7 @@ function difficultyChange(easier) {
 function check(input) {
     if (input == standname) {
         savedCopy += `${"✅✅✅✅✅✅✅"}`
-        savedCopy = savedCopy.replace('WubWub', `I got Standle #${endless ? "Endless" : standle} in ${6 - lives + 1} guesses\n`)
+        savedCopy = savedCopy.replace('WubWub', `I got Standle #${endless ? "Endless" : standle} in ${6 - lives + 1} guesses - https://bit.ly/Standle\n`)
         document.getElementById('result').innerHTML = `<span style="color: lightgreen">You Win!</span><p /> The stand was...
         <table id="win">
             <tr><th></th><th>Power</th><th>Speed</th><th>Range</th><th>Stamina</th><th>Precision</th><th>Development</th><th>Part</th></tr>
@@ -337,7 +337,7 @@ function check(input) {
             <tr><th>${input}</th><td>${reconvert(stands[input].power)}${correction.power}</td><td>${reconvert(stands[input].speed)}${correction.speed}</td><td>${reconvert(stands[input].range)}${correction.range}</td><td>${reconvert(stands[input].stamina)}${correction.stamina}</td><td>${reconvert(stands[input].precision)}${correction.precision}</td><td>${reconvert(stands[input].development)}${correction.development}</td><td>${stands[input].part > 9 ? "Beyond Mainline" : stands[input].part}${correction.part}</td></tr>
         `
         if (lives == 0) {
-            savedCopy = savedCopy.replace('WubWub', `I did not get Standle #${endless ? "Endless" : standle}\n`)
+            savedCopy = savedCopy.replace('WubWub', `I did not get Standle #${endless ? "Endless" : standle} - https://bit.ly/Standle\n`)
             document.getElementById('result').innerHTML = `<span style="color: pink">You Lost</span> <p /> The stand was...
             <table id="fail">
                     <tr><th></th><th>Power</th><th>Speed</th><th>Range</th><th>Stamina</th><th>Precision</th><th>Development</th><th>Part</th></tr>

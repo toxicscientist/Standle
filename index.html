@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Star.svg">
+    <title>Standle</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="c"></div>
+    <div id="container">
+        <header id="settings"><button id="settingsButton" onclick="openSettings()">⚙️</button></header>
+        <h1><span style="color:lightsteelblue">STAND</span><span>LE</span></h1>
+        <b><div id="result"></div></b>
+        <div id="input">
+            <select id="in" oninput="check(document.getElementById('in').value)"></select>
+        </div>
+        <hr />
+        <div id="stand">
+            <table id="guesses">
+                <tr><th>Stand</th><th>Power</th><th>Speed</th><th>Range</th><th>Stamina</th><th>Precision</th><th>Development</th><th>Part</th></tr>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+    <a href="credits.html">Credits</a>
+</footer>
+<script defer="true" src="./Stands.js"></script>
+</html>

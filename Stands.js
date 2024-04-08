@@ -238,17 +238,14 @@ function resCookieHandler(day, lives){
     document.cookie = `days=${(daysCookie ? daysCookie + "," + day + "," + lives : day + "," + lives)}`
 }
 
-var standname = choose(Object.keys(stands))
 var standle = Math.ceil(new Date().getTime() / (1000 * 60 * 60 * 24)) - 19810
-// COMMENTED OUT FOR DEBUGGING, ADD BACK LATER
-// var epochstand = Object.keys(stands)[Math.round(((+((((Math.cos(standle))*100).toString()).slice(5,8)))/1000)*Object.keys(stands).length)]
-// console.log("epoch", epochstand, stands[epochstand])
-var stand = stands[standname]
+var epochstand = Object.keys(stands)[Math.round(((+((((Math.cos(standle))*100).toString()).slice(5,8)))/1000)*Object.keys(stands).length)]
+console.log("epoch", epochstand, stands[epochstand])
+var stand = epochstand
 var settingsOpen = false
 let lives = 6
 var savedCopy = `WubWub`;
 updateLives(lives)
-console.log(standname, stand)
 populateDropdown(false)
 
 function populateDropdown(easy) {
@@ -343,10 +340,3 @@ function check(input) {
         }
     }
 }
-// Cookies to save wins/losses, maybe guesses
-/* days = [
-    1: 6 // lives
-    100: 3
-    120: 0 // loss
-]
-*/

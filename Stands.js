@@ -212,33 +212,6 @@ async function copy(text) {
     }
 }
 
-function getDaysCookie() {
-    var daysCookie;
-    document.cookie?.split(';').forEach(e => {
-        if ((e.split("="))[0] == "days") {
-            daysCookie = e.split("=")[1]
-        }
-    })
-    return daysCookie
-}
-
-/* var daystats = []
-daysCookie.split(',').forEach((e, i) => {
-    if (i % 2 !== 0) {
-        daystats[daysCookie.split(',')[i - 1]] = e
-    }
-}) */
-
-function resCookieHandler(day, lives) {
-    var daysCookie;
-    document.cookie?.split(';').forEach(e => {
-        if ((e.split("="))[0] == "days") {
-            daysCookie = e.split("=")[1]
-        }
-    })
-    document.cookie = `days=${(daysCookie ? daysCookie + "," + day + "," + lives : day + "," + lives)}`
-}
-
 function setQString(name, value) {
     var searchParams = new URLSearchParams(window.location.search);
     searchParams.set(name, value);
@@ -256,6 +229,7 @@ var stand = stands[standname]
 var settingsOpen = false
 let lives = 6
 var savedCopy = `WubWub`;
+var guesses = [];
 updateLives(lives)
 populateDropdown(false)
 
@@ -320,7 +294,10 @@ function check(input) {
         `
         document.getElementById('result').style.border = "1px solid"
         document.getElementById('input').innerHTML = ""
-        if(!endless)resCookieHandler(standle, lives)
+        //Session storage handling
+        guesses.push(input)
+        sessionStorage.setItem(standle, guesses)
+        //end
     } else {
         var correction = {};
         correction.power = compare(input, "power")
@@ -332,6 +309,10 @@ function check(input) {
         correction.part = compare(input, "part")
         lives -= 1
         updateLives(lives)
+        //Session storage handling
+        guesses.push(input)
+        sessionStorage.setItem(standle, guesses)
+        //end
         savedCopy += `${Object.values(correction).join('')}\n`
         document.getElementById('guesses').innerHTML += `
             <tr><th>${input}</th><td>${reconvert(stands[input].power)}${correction.power}</td><td>${reconvert(stands[input].speed)}${correction.speed}</td><td>${reconvert(stands[input].range)}${correction.range}</td><td>${reconvert(stands[input].stamina)}${correction.stamina}</td><td>${reconvert(stands[input].precision)}${correction.precision}</td><td>${reconvert(stands[input].development)}${correction.development}</td><td>${stands[input].part > 9 ? "Beyond Mainline" : stands[input].part}${correction.part}</td></tr>
@@ -346,9 +327,18 @@ function check(input) {
             <p /><div id="savedCopy">${savedCopy}</div>
             <p /><button onclick="!endless ? copy(savedCopy) : window.location.reload()" id="copy">${endless ? "🔄Refresh" : "🔗Copy"}</button>
             `
+            //Session storage handling
+            guesses.push(input)
+            sessionStorage.setItem(standle, guesses)
+            //end
             document.getElementById('result').style.border = "1px solid"
             document.getElementById('input').innerHTML = ""
-            if(!endless)resCookieHandler(standle, 0)
         }
     }
+}
+
+if(sessionStorage.getItem(standle)){
+    sessionStorage.getItem(standle).split(',').forEach((e) =>{
+        check(e)
+    })
 }
